@@ -1,22 +1,59 @@
+:root {
+	--header-table-border-color: rgba(0, 0, 0, 0.1);
+	--header-color: rgba(0, 0, 0, 0.3);
+	--body-code-color: #666;
+	--system-message-color: #cbcbcb;
+	--feedlink-color: rgba(255, 0, 0, 0.6);
+	--article-title-color: #333;
+	--article-date-color: rgba(0, 0, 0, 0.3);
+	--table-cell-border-color: lightgray;
+	/* fonts */
+	/* macos */
+	--font-stack-body-macos: 'PT Sans', sans-serif;
+	--font-stack-header-macos: 'PT Sans Narrow Bold', sans-serif;
+	/* ios */
+	/* --font-stack-body-ios: 'Avenir-Book', -apple-system-body; */
+	/* --font-stack-header-ios: Charter, ui-serif; */
+	--font-stack-body-ios: 'PT Sans', sans-serif;
+	--font-stack-header-ios: 'PT Sans Narrow Bold', sans-serif;
+}
+
 body {
 	margin-left: auto;
 	margin-right: auto;
-	
+
 	word-wrap: break-word;
 	max-width: 44em;
+	font-size: 1.1rem;
 }
 
 .feedHeader {
-	margin: auto;
-	text-align: center;
+	/* margin: auto; */
+	/* text-align: center; */
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	gap: 0.25rem;
+	font-size: 1.0rem;
+	width: 100%;
 }
 
-.feedHeader img {
+.byline-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.byline-container img {
 	margin: auto;
 	display: block;
-	padding-top: 1em;
-	padding-bottom: 1em;
+	/* padding-top: 1em; */
+	/* padding-bottom: 1em; */
 }
+
 
 .svg-inline--fa {
 	height: 1em;
@@ -57,16 +94,7 @@ pre {
 	cursor: default;
 }
 
-:root {
-	--header-table-border-color: rgba(0, 0, 0, 0.1);
-	--header-color: rgba(0, 0, 0, 0.3);
-	--body-code-color: #666;
-	--system-message-color: #cbcbcb;
-	--feedlink-color: rgba(255, 0, 0, 0.6);
-	--article-title-color: #333;
-	--article-date-color: rgba(0, 0, 0, 0.3);
-	--table-cell-border-color: lightgray;
-}
+
 
 @media(prefers-color-scheme: dark) {
 	:root {
@@ -121,23 +149,24 @@ body > .systemMessage {
 	color: var(--article-title-color);
 	margin-top: 26px;
 	padding-bottom: 12px;
-	text-align: center;
+	/* text-align: center; */
 	margin: auto;
-	font-family: Charter, ui-serif;
+
 }
 
 .articleDateline {
 	color: rgba(124, 124, 124, 1);
 	margin-bottom: 5px;
-	text-align: center;
+	/* text-align: center; */
 	padding-top: 1em;
+	font-size: 0.8rem;
 }
 
 .articleDateline a:link, .articleDateline a:visited {
 	color: rgba(166, 166, 166, 1);
 	font-weight: normal;
 	padding-top: 1em;
-	text-align: center;
+	/* text-align: center; */
 }
 
 .articleDatelineTitle {
@@ -188,7 +217,7 @@ pre {
 }
 
 code, pre {
-	font-family: "SF Mono", Menlo, "Courier New", Courier, monospace;
+	font-family: 'Andale Mono', 'PT Mono', 'SF Mono', Menlo, "Courier New", Courier, monospace;
 	font-size: 0.95em;
 	-webkit-hyphens: none;
 }
@@ -261,8 +290,8 @@ figure {
 }
 
 figcaption {
-	font-size: 14px;
-	line-height: 1.3em;
+	font-size: 13px;
+	line-height: 1.1em;
 }
 
 sup {
@@ -278,8 +307,8 @@ sub {
 }
 
 hr {
-	border: none; 
-	background-color: var(--table-cell-border-color); 
+	border: none;
+	background-color: var(--table-cell-border-color);
 	height: 1px;
 	margin-top: 1em;
 }
@@ -306,12 +335,13 @@ hr {
 		  padding: 1rem;
 		  color: color(srgb 0.383 0.383 0.383);
 		  font-size: 0.95rem;
+			border-left: 8px solid var(--block-quote-border-color);
 	  }
-	  
+
 	  pre {
 		  background: color(srgb 0.947 0.947 0.947);
 	  }
-	  
+
 	  p code {
 		  background: color(srgb 0.947 0.947 0.947);
 		  padding: 0.2em;
@@ -327,12 +357,13 @@ hr {
 	  padding: 1em;
 	  color: rgba(195, 195, 195, 1);
 	  font-size: 0.95rem;
+		border-left: 8px solid var(--block-quote-border-color);
   }
-  
+
   pre {
 	  background: rgba(49, 49, 49, 1);
   }
-  
+
   p code {
 	  background: rgba(49, 49, 49, 1);
 	  padding: 0.2em;
@@ -562,7 +593,7 @@ a.footnote:hover,
 
 /* iOS Specific */
 @supports (-webkit-touch-callout: none) {
-	
+
 	body {
 		margin-top: 3px;
 		margin-bottom: 20px;
@@ -571,12 +602,14 @@ a.footnote:hover,
 	}
 
 	:root {
-		color-scheme: light dark;
-		font-family: 'Avenir-Book', -apple-system-body;
-		font-size: [[font-size]]px;
 		--primary-accent-color: #086AEE;
 		--secondary-accent-color: #086AEE;
 		--block-quote-border-color: rgba(8, 106, 238, 0.75);
+
+		color-scheme: light dark;
+		font-family: var(--font-stack-body-ios);
+		font-weight: 400;
+		font-size: [[font-size]]px;
 	}
 
 	@media(prefers-color-scheme: dark) {
@@ -585,6 +618,16 @@ a.footnote:hover,
 			--secondary-accent-color: #5E9EF4;
 			--block-quote-border-color: rgba(94, 158, 244, 0.75);
 			--header-table-border-color: rgba(255, 255, 255, 0.2);
+		}
+
+		/* ios specific header */
+		.articleTitle a:link,
+		.articleTitle a:visited,
+		.articleTitle h1 {
+			font-family: (--font-stack-header-ios);
+			font-weight: bold;
+			font-style: normal;
+			font-size: 1.8rem
 		}
 	}
 
@@ -625,13 +668,14 @@ a.footnote:hover,
 
 /* macOS Specific */
 @supports not (-webkit-touch-callout: none) {
-	
+
 	body {
 		margin-top: 20px;
 		margin-bottom: 64px;
 		padding-left: 48px;
 		padding-right: 48px;
-		font-family: 'Avenir', -apple-system;
+		font-family: var(--font-stack-body-macos);
+		font-weight: 400;
 	}
 
 	.smallText {
@@ -658,6 +702,10 @@ a.footnote:hover,
 		color-scheme: light dark;
 		--accent-color: rgba(8, 106, 238, 1);
 		--block-quote-border-color: rgba(8, 106, 238, .50);
+
+		font-family: var(--font-stack-body);
+		font-weight: 400;
+		font-size: [[font-size]]px;
 	}
 
 	@media(prefers-color-scheme: dark) {
@@ -674,6 +722,15 @@ a.footnote:hover,
 
 	.nnw-overflow table {
 		//border: 1px solid var(--accent-color);
+	}
+
+	/* macos specific header */
+	.articleTitle a:link,
+	.articleTitle a:visited,
+	.articleTitle h1 {
+		font-family: (--font-stack-header-macos);
+		font-weight: 700;
+		font-style: normal;
 	}
 
 }

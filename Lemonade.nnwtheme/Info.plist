@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>Name</key>
-	<string>Promenade</string>
+	<string>Lemonade</string>
 	<key>ThemeIdentifier</key>
-	<string>com.mynameisstuart.themes.promenade</string>
+	<string>com.rareyman.themes.lemonade</string>
 	<key>CreatorHomePage</key>
-	<string>https://mynameisstuart.com/</string>
+	<string>https://reyman.name/</string>
 	<key>CreatorName</key>
-	<string>Stuart Breckenridge</string>
+	<string>Ross A, Reyman, based on Promenade by Stuart Breckenridge</string>
 	<key>Version</key>
-	<integer>14</integer>
+	<integer>1</integer>
 </dict>
 </plist>
